@@ -1,0 +1,30 @@
+{
+  "name": "assignment-crud-api",
+  "version": "1.0.0",
+  "description": "Assignment-CRUD-API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AliaxeiSehiyenia/Assignment-CRUD-API.git"
+  },
+  "keywords": [
+    "nodejs",
+    "Assignment-CRUD-API"
+  ],
+  "author": {
+    "name": "AliaxeiSehiyenia",
+    "email": "alexeisergienia@gmail.com",
+    "url": "https://github.com/AliaxeiSehiyenia"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AliaxeiSehiyenia/Assignment-CRUD-API/issues"
+  },
+  "homepage": "https://github.com/AliaxeiSehiyenia/Assignment-CRUD-API#readme"
+}
