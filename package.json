@@ -2,10 +2,10 @@
   "name": "assignment-crud-api",
   "version": "1.0.0",
   "description": "Assignment-CRUD-API",
-  "main": "index.js",
-  "type": "module",
+  "main": "index.ts",
   "scripts": {
-    "start": "node ./src/index.js"
+    "start:dev": "nodemon",
+    "start:prod": "tsc && node ./dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -27,5 +27,10 @@
   "bugs": {
     "url": "https://github.com/AliaxeiSehiyenia/Assignment-CRUD-API/issues"
   },
-  "homepage": "https://github.com/AliaxeiSehiyenia/Assignment-CRUD-API#readme"
+  "homepage": "https://github.com/AliaxeiSehiyenia/Assignment-CRUD-API#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
 }
