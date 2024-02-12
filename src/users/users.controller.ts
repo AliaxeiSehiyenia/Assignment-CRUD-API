@@ -10,6 +10,8 @@ const usersService = new UsersService(usersRepository);
 
 export const UsersController = async function (req: IncomingMessage, res: ServerResponse) {
 
+    console.log(`Worker ${process.pid} requested`);
+
     res.setHeader('Content-Type', 'application/json');
     const [api, users, id, ...rest] = req.url.split('/').filter(Boolean);
 

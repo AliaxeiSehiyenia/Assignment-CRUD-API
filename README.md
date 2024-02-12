@@ -23,6 +23,13 @@ Run the application in production mode
 ```
 npm run start:prod
 ```
+Run cluster mode with default load balancer and one in-memory-database for all workers
+
+```
+npm run start:multi
+```
+
+In console you can watch which worker response on the request. Workers should round-robin and data from database should be consistent for all workers.
 
 ## 💥 API
 
@@ -45,3 +52,7 @@ Implemented endpoint: `api/users`
 `age` — user's age (number, **required**)
 
 `hobbies` — user's hobbies (array of strings or empty array, **required**)
+
+## 💥 Postman
+
+You can find Postman collection with all relized API requests in the root of the repository.
