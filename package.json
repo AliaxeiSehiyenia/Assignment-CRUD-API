@@ -5,7 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "start:dev": "nodemon",
-    "start:prod": "tsc && node ./dist/index.js"
+    "start:prod": "tsc && node ./dist/index.js",
+    "start:multi": "tsc && node ./dist/index.js --cluster=enable"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "dotenv": "^16.4.2",
     "uuid": "^9.0.1"
   }
 }

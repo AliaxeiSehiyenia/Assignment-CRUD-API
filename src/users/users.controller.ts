@@ -1,5 +1,5 @@
 import {IncomingMessage, ServerResponse} from 'http';
-import {Errors, StatusCode} from "../app/app/constants";
+import {Errors, Method, StatusCode} from "../app/app/constants";
 import {UsersService} from "./users.service";
 import {NotFoundError, ValidationError} from "../app/app/errors";
 import {UsersRepository} from "./users.repository";
@@ -25,23 +25,23 @@ export const UsersController = async function (req: IncomingMessage, res: Server
 
         try {
             switch (req.method) {
-                case 'GET':
+                case Method.GET:
                     result = await (id
                         ? usersService.findOne(id)
                         : usersService.findAll());
                     break;
-                case 'POST':
+                case Method.POST:
                     if (id) {
                         throw new NotFoundError(Errors.ERR_RESOURCE_NOT_FOUND);
                     }
                     result = await usersService.create(ValidateBody(body));
                     statusCode = StatusCode.CREATE_SUCCESSFUL;
                     break;
-                case 'DELETE':
+                case Method.DELETE:
                     result = await usersService.remove(id);
                     statusCode = StatusCode.NOT_CONTENT;
                     break;
-                case 'PUT':
+                case Method.PUT:
                     result = await usersService.update(id, ValidateBody(body));
                     break;
                 default:

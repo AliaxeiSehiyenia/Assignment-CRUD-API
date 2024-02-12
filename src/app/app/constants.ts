@@ -16,3 +16,18 @@ export const enum StatusCode {
     NOT_FOUND = 404,
     INTERNAL_SERVER_ERROR = 500
 }
+
+export const enum Method {
+    GET = 'GET',
+    POST = 'POST',
+    PUT = 'PUT',
+    DELETE = 'DELETE',
+}
+
+export const enum Command {
+    FIND = 'find',
+    FIND_ONE = 'findOne',
+    CREATE = 'create',
+    REMOVE = 'remove',
+    UPDATE = 'update',
+}
