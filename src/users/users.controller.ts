@@ -38,7 +38,7 @@ export const UsersController = async function (req: IncomingMessage, res: Server
                     statusCode = StatusCode.CREATE_SUCCESSFUL;
                     break;
                 case Method.DELETE:
-                    result = await usersService.remove(id);
+                    await usersService.remove(id);
                     statusCode = StatusCode.NOT_CONTENT;
                     break;
                 case Method.PUT:

@@ -56,7 +56,7 @@ export class UsersRepository extends EventEmitter {
         }
     }
 
-    async remove(id: string): Promise<User> {
+    async remove(id: string): Promise<void> {
         if (cluster.isWorker) {
             const obj = {cmd: Command.REMOVE, data: [id]};
             return this.requestMasterForData(obj);
@@ -64,8 +64,8 @@ export class UsersRepository extends EventEmitter {
             return new Promise((resolve, reject) => {
                 const index = usersBD.findIndex((item) => item.id === id);
                 if (index !== -1) {
-                    const user = usersBD.splice(index, 1)[0];
-                    resolve(user);
+                    usersBD.splice(index, 1);
+                    resolve();
                 }
                 resolve(undefined);
             });

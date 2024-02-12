@@ -27,7 +27,7 @@ export class UsersService {
         return user;
     }
 
-    async remove(id: string): Promise<User> {
+    async remove(id: string): Promise<void> {
         this.validateUserId(id)
         await this.findOne(id);
         return this.usersRepository.remove(id);
