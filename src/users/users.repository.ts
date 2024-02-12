@@ -3,7 +3,6 @@ import {EventEmitter} from 'events';
 import {User} from './entity/user';
 import {CreateBody} from "./entity/createBody";
 import {usersBD} from "../BD/userBD";
-import cluster from "cluster";
 
 export class UsersRepository extends EventEmitter {
     async find(): Promise<User[]> {
