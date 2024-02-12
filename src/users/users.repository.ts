@@ -37,7 +37,7 @@ export class UsersRepository extends EventEmitter {
         });
     }
 
-    async update(id: string, input: Partial<User>): Promise<User> {
+    async update(id: string, input: CreateBody): Promise<User> {
         return new Promise(async (resolve, reject) => {
             const user = Object.assign(await this.findOne(id), input);
             resolve(user);
