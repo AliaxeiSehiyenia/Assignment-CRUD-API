@@ -63,7 +63,7 @@ export class UsersRepository extends EventEmitter {
         } else {
             return new Promise((resolve, reject) => {
                 const index = usersBD.findIndex((item) => item.id === id);
-                if (index != -1) {
+                if (index !== -1) {
                     const user = usersBD.splice(index, 1)[0];
                     resolve(user);
                 }
@@ -77,8 +77,9 @@ export class UsersRepository extends EventEmitter {
             const obj = {cmd: Command.UPDATE, data: [id, input]};
             return this.requestMasterForData(obj);
         } else {
+            const oldUser = await this.findOne(id);
             return new Promise(async (resolve, reject) => {
-                const user = Object.assign(await this.findOne(id), input);
+                const user = Object.assign(oldUser, input);
                 resolve(user);
             });
         }
