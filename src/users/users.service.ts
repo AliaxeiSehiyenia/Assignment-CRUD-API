@@ -27,6 +27,12 @@ export class UsersService {
         return user;
     }
 
+    async remove(id: string): Promise<User> {
+        this.validateUserId(id)
+        await this.findOne(id);
+        return this.usersRepository.remove(id);
+    }
+
     validateUserId(id: string) {
         if (!uuid.validate(id)) {
             throw new ValidationError(Errors.ERR_USERID_INVALID);

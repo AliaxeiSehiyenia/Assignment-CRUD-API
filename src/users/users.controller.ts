@@ -37,6 +37,10 @@ export const UsersController = async function (req: IncomingMessage, res: Server
                     result = await usersService.create(ValidateBody(body));
                     statusCode = StatusCode.CREATE_SUCCESSFUL;
                     break;
+                case 'DELETE':
+                    result = await usersService.remove(id);
+                    statusCode = StatusCode.NOT_CONTENT;
+                    break;
                 default:
                     throw new Error(Errors.ERR_UNSUPPORTED_OPERATION);
             }
