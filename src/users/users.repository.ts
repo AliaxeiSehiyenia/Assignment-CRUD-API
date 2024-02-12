@@ -3,6 +3,7 @@ import {EventEmitter} from 'events';
 import {User} from './entity/user';
 import {CreateBody} from "./entity/createBody";
 import {usersBD} from "../BD/userBD";
+import cluster from "cluster";
 
 export class UsersRepository extends EventEmitter {
     async find(): Promise<User[]> {
@@ -33,6 +34,13 @@ export class UsersRepository extends EventEmitter {
                 resolve(user);
             }
             resolve(undefined);
+        });
+    }
+
+    async update(id: string, input: Partial<User>): Promise<User> {
+        return new Promise(async (resolve, reject) => {
+            const user = Object.assign(await this.findOne(id), input);
+            resolve(user);
         });
     }
 }

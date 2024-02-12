@@ -41,6 +41,9 @@ export const UsersController = async function (req: IncomingMessage, res: Server
                     result = await usersService.remove(id);
                     statusCode = StatusCode.NOT_CONTENT;
                     break;
+                case 'PUT':
+                    result = await usersService.update(id, ValidateBody(body));
+                    break;
                 default:
                     throw new Error(Errors.ERR_UNSUPPORTED_OPERATION);
             }

@@ -33,6 +33,11 @@ export class UsersService {
         return this.usersRepository.remove(id);
     }
 
+    async update(id: string, input: CreateBody): Promise<User> {
+        await this.findOne(id);
+        return this.usersRepository.update(id, input);
+    }
+
     validateUserId(id: string) {
         if (!uuid.validate(id)) {
             throw new ValidationError(Errors.ERR_USERID_INVALID);
